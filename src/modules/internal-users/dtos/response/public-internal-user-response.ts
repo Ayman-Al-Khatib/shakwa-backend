@@ -4,7 +4,7 @@ import { InternalUserEntity } from '../../entities/internal-user.entity';
 import { ComplaintAuthority } from '@app/modules/your-bucket-name';
 
 @Exclude()
-export class InternalUserResponseDto {
+export class PublicInternalUserResponseDto {
   @Expose()
   id: number;
 
@@ -15,25 +15,7 @@ export class InternalUserResponseDto {
   fullName: string;
 
   @Expose()
-  email: string;
-
-  @Expose()
   authority?: ComplaintAuthority;
-
-  @Expose()
-  createdAt: Date;
-
-  @Expose()
-  updatedAt: Date;
-
-  @Expose()
-  passwordChangedAt: Date | null;
-
-  @Expose()
-  lastLoginAt: Date | null;
-
-  @Expose()
-  lastLogoutAt: Date | null;
 
   constructor(internalUser: InternalUserEntity) {
     return Object.assign(this, internalUser);
